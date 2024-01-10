@@ -1,3 +1,5 @@
+## About the APP:
+
 This is a repository for a Real-Time Messenger Clone: Next.js 13, React, Tailwind, Prisma, MongoDB, NextAuth, Pusher.
 Key Features:
 
@@ -17,10 +19,8 @@ Key Features:
 - Group chats and one-on-one messaging
 - Message attachments and file sharing
 - User profile customization and settings
-- How to write POST, GET, and DELETE routes in route handlers (app/api)
-- How to fetch data in server React components by directly accessing the database (WITHOUT API! like Magic!)
 - Handling relations between Server and Child components in a real-time environment
-- Creating and managing chat rooms and channels
+- Chat rooms and channels
 
 - ### Prerequisites
 
@@ -29,7 +29,7 @@ Key Features:
 ### Cloning the repository
 
 ```shell
-git clone https://github.com/AntonioErdeljac/next13-messenger.git
+git clone https://github.com/EricaReis/messenger-clone-nextjs13.git
 ```
 
 ### Install packages
