@@ -1,14 +1,16 @@
 "use client"
 
+import axios from "axios"
+import React, { useState } from "react"
+import { useRouter } from "next/navigation"
+import { FieldValues, SubmitHandler, useForm } from "react-hook-form"
+import { User } from "@prisma/client"
+import toast from "react-hot-toast"
+
 import Modal from "@/app/components/Modal"
+import Button from "@/app/components/button"
 import Select from "@/app/components/inputs/Select"
 import Input from "@/app/components/inputs/input"
-import axios from "axios"
-import { User } from "next-auth"
-import { useRouter } from "next/navigation"
-import { useState } from "react"
-import { FieldValues, SubmitHandler, useForm } from "react-hook-form"
-import { toast } from "react-hot-toast"
 
 interface GroupChatModalProps {
   isOpen?: boolean
@@ -51,7 +53,7 @@ const GroupChatModal: React.FC<GroupChatModalProps> = ({
         router.refresh()
         onClose()
       })
-      .catch(() => toast.error("Something went wrong"))
+      .catch(() => toast.error("Something went wrong!"))
       .finally(() => setIsLoading(false))
   }
 
@@ -114,6 +116,29 @@ const GroupChatModal: React.FC<GroupChatModalProps> = ({
               />
             </div>
           </div>
+        </div>
+
+        <div
+          className="
+            mt-6
+            flex
+            items-center
+            justify-end
+            gap-x-6
+          "
+        >
+          <Button
+            disabled={isLoading}
+            onClick={onClose}
+            type="button"
+            secondary
+          >
+            Cancel
+          </Button>
+
+          <Button disabled={isLoading} type="submit">
+            Create
+          </Button>
         </div>
       </form>
     </Modal>

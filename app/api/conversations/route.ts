@@ -16,7 +16,7 @@ export async function POST(
     } = body;
 
     if (!currentUser?.id || !currentUser?.email) {
-      return new NextResponse('Unauthorized', { status: 401 });
+      return new NextResponse('Unauthorized', { status: 400 });
     }
 
     if (isGroup && (!members || members.length < 2 || !name)) {
@@ -30,17 +30,17 @@ export async function POST(
           isGroup,
           users: {
             connect: [
-              ...members.map((member: { value: string}) => ({
-                id: member.value
+              ...members.map((member: { value: string }) => ({  
+                id: member.value 
               })),
               {
-                if: currentUser.id
+                id: currentUser.id
               }
             ]
           }
         },
         include: {
-          users: true
+          users: true,
         }
       });
 
